@@ -30,38 +30,18 @@
     <p>I’m a student learning frontend development. I enjoy designing websites and making them interactive.</p>
   </section>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <form id="contactForm" action="https://script.google.com/macros/s/AKfycbwUpJkPFlSATQHYXnDbW0hdisPjm_ESFyT0PmdvVikjF_tlKhALdgs3rv1w2hICgt2QTw/exec" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" placeholder="Your Message" required></textarea><br>
-    <button type="submit">Send</button>
-  </form>
-</section>
-
-<!-- SweetAlert2 for popup messages -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
   const form = document.getElementById('contactForm');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value,
-    };
+    const formData = new FormData(form);
 
     try {
       const response = await fetch(form.action, {
         method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        }
+        body: formData
       });
 
       if (response.ok) {
@@ -84,6 +64,7 @@
     }
   });
 </script>
+
 
 
   <button onclick="sayHello()">Click Me</button>
