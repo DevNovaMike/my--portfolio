@@ -11,9 +11,34 @@
   <header>
     <h1>Hello, I'm Anthony </h1>
     <p>Frontend Developer in training 👨‍💻</p>
-    <!-- SweetAlert2 -->
+  </header>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>Portfolio Website</li>
+    </ul>
+    <section id="info">
+      <h2>Little Info</h2>
+      <p>This is just a little test im running as a beginner.</p>
+    <!-- Add this below your <section id="projects"> -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I’m a student learning frontend development. I enjoy designing websites and making them interactive.</p>
+</section>
+<section id="contact">
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form action="https://formspree.io/f/xdkzevak" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+</section>
+  <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+<script>
   const form = document.querySelector("form");
 
   form.addEventListener("submit", async function (event) {
@@ -45,32 +70,6 @@
     }
   });
 </script>
-
-  </header>
-
-  <section id="projects">
-    <h2>My Projects</h2>
-    <ul>
-      <li>Portfolio Website</li>
-    </ul>
-    <section id="info">
-      <h2>Little Info</h2>
-      <p>This is just a little test im running as a beginner.</p>
-    <!-- Add this below your <section id="projects"> -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>I’m a student learning frontend development. I enjoy designing websites and making them interactive.</p>
-</section>
-<section id="contact">
-<section id="contact">
-  <h2>Contact Me</h2>
-  <form action="https://formspree.io/f/xdkzevak" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" placeholder="Your Message" required></textarea><br>
-    <button type="submit">Send</button>
-  </form>
-</section>
 
 
   </section>
