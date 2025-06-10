@@ -11,6 +11,41 @@
   <header>
     <h1>Hello, I'm Anthony </h1>
     <p>Frontend Developer in training 👨‍💻</p>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault(); // Stop default form behavior
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: 'Thank you for contacting me.',
+      });
+      form.reset(); // Clear form
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong. Please try again later.',
+      });
+    }
+  });
+</script>
+
   </header>
 
   <section id="projects">
