@@ -4,68 +4,62 @@
   <meta charset="UTF-8">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
   <header>
     <h1>Hello, I'm Anthony</h1>
     <p>Frontend Developer in training 👨‍💻</p>
   </header>
 
-  <section id="projects">
-    <h2>My Projects</h2>
-    <ul>
-      <li>Portfolio Website</li>
-    </ul>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbwUpJkPFlSATQHYXnDbW0hdisPjm_ESFyT0PmdvVikjF_tlKhALdgs3rv1w2hICgt2QTw/exec" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="email" name="email" placeholder="Your Email" required><br>
+      <textarea name="message" placeholder="Your Message" required></textarea><br>
+      <button type="submit">Send</button>
+    </form>
   </section>
 
-  <section id="info">
-    <h2>Little Info</h2>
-    <p>This is just a little test I'm running as a beginner.</p>
-  </section>
+  <script>
+    const form = document.getElementById('contactForm');
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a student learning frontend development. I enjoy designing websites and making them interactive.</p>
-  </section>
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-<script>
-  const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData
-      });
-
-      if (response.ok) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Message Sent!',
-          text: 'Thank you for contacting me.',
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
         });
-        form.reset();
-      } else {
-        throw new Error('Form failed to submit');
+
+        if (response.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent!',
+            text: 'Thank you for contacting me.',
+          });
+          form.reset();
+        } else {
+          throw new Error('Form failed to submit');
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong. Try again later.',
+        });
+        console.error(error);
       }
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong. Try again later.',
-      });
-      console.error(error);
-    }
-  });
-</script>
+    });
+  </script>
 
-
+</body>
+</html>
 
   <button onclick="sayHello()">Click Me</button>
   <button onclick="greetUser('User')">Greet Me</button>
