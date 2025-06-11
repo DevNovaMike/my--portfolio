@@ -24,46 +24,49 @@
   <button onclick="greetUser('User')">Greet Me</button>
 
   <script>
-    const form = document.getElementById('contactForm');
+const form = document.getElementById('contactForm');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-      const formData = {
-        name: form.elements["name"].value,
-        email: form.elements["email"].value,
-        message: form.elements["message"].value
-      };
+  const formData = {
+    name: form.elements["name"].value,
+    email: form.elements["email"].value,
+    message: form.elements["message"].value
+  };
 
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
-        if (result.success) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Message Sent!',
-            text: 'Thank you for contacting me.',
-          });
-          form.reset();
-        } else {
-          throw new Error(result.error || 'Form failed to submit');
-        }
-      } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong. Try again later.',
-        });
-        console.error(error);
-      }
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
     });
+
+    console.log('Raw response:', response);
+
+    const result = await response.json();
+    console.log('Parsed JSON result:', result);
+
+    if (result.success) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: 'Thank you for contacting me.',
+      });
+      form.reset();
+    } else {
+      throw new Error(result.error || 'Form failed to submit');
+    }
+  } catch (error) {
+    console.error('Error caught:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong. Try again later.',
+    });
+  }
+});
+
   </script>
 
   <script src="script.js"></script>
