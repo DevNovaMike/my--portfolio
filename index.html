@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -13,54 +13,49 @@
     <p>Frontend Developer in training 👨‍💻</p>
   </header>
 
-  <form id="contactForm" action="https://script.google.com/macros/s/AKfycbwCIX2H0gGoDoVJOl7EisSsWh-BkkRGjyixp2TePLELvKiUeJZc2CiN-UZqLYTtqpy_/exec" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required /><br />
-    <input type="email" name="email" placeholder="Your Email" required /><br />
-    <textarea name="message" placeholder="Your Message" required></textarea><br />
+  <form id="contactForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br>
     <button type="submit">Send</button>
   </form>
 
-  <button onclick="sayHello()">Click Me</button>
-  <button onclick="greetUser('User')">Greet Me</button>
-
   <script>
-const form = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  const formData = new FormData(form);
+      const formData = new FormData(form);
 
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent!',
+            text: 'Thank you for contacting me.',
+          });
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Form failed to submit');
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong. Try again later.',
+        });
+        console.error('Error caught:', error);
+      }
     });
-
-    const result = await response.json(); // Only if your script returns JSON
-
-    if (result.success) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Message Sent!',
-        text: 'Thank you for contacting me.',
-      });
-      form.reset();
-    } else {
-      throw new Error(result.error || 'Form failed to submit');
-    }
-  } catch (error) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong. Try again later.',
-    });
-    console.error('Error caught:', error);
-  }
-});
-
   </script>
 
-  <script src="script.js"></script>
 </body>
 </html>
