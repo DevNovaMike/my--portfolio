@@ -29,23 +29,15 @@ const form = document.getElementById('contactForm');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const formData = {
-    name: form.elements["name"].value,
-    email: form.elements["email"].value,
-    message: form.elements["message"].value
-  };
+  const formData = new FormData(form);
 
   try {
     const response = await fetch(form.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+      body: formData
     });
 
-    console.log('Raw response:', response);
-
-    const result = await response.json();
-    console.log('Parsed JSON result:', result);
+    const result = await response.json(); // Only if your script returns JSON
 
     if (result.success) {
       Swal.fire({
@@ -58,12 +50,12 @@ form.addEventListener('submit', async (e) => {
       throw new Error(result.error || 'Form failed to submit');
     }
   } catch (error) {
-    console.error('Error caught:', error);
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'Something went wrong. Try again later.',
     });
+    console.error('Error caught:', error);
   }
 });
 
