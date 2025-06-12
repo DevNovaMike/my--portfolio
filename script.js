@@ -7,10 +7,18 @@ function greetUser(name) {
   alert("Welcome, " + name + "! Glad you're here.");
 }
 
-// Toggle Dark Mode
 function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
 }
+
+// Run this when the page loads
+window.addEventListener("DOMContentLoaded", () => {
+  const darkModeSetting = localStorage.getItem("darkMode");
+  if (darkModeSetting === "enabled") {
+    document.body.classList.add("dark-mode");
+  }
+});
 
 // Form Submission
 document.addEventListener('DOMContentLoaded', () => {
