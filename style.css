@@ -114,12 +114,34 @@ button:hover {
   #contact input,
   #contact textarea {
     width: 100%;
+  }/* ----------- Mobile Friendly Layout ----------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
   }
-body {
-  font-family: 'Poppins', sans-serif;
-button {
-  transition: background-color 0.3s ease;
-#contact {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #contactForm {
+    width: 100%;
+    padding: 0;
+  }
+}
