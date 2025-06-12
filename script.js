@@ -18,6 +18,18 @@ window.addEventListener("DOMContentLoaded", () => {
   if (darkModeSetting === "enabled") {
     document.body.classList.add("dark-mode");
   }
+
+  // Animation scroll-in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 });
 
 // Form Submission
@@ -35,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const response = await fetch("https://script.google.com/macros/s/AKfycbx-od27r1JZNdr1RBf4U2m-T7SF_jlWOdKc7LrFWZ3a_I9d3jObvbXotxbedGpouZF-wA/exec", {
-        // 🔁 Replace this with your actual Google Apps Script Web App URL
         method: "POST",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
