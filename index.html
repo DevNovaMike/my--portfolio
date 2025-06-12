@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact</title>
+  <meta charset="UTF-8" />
+  <title>Contact Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- SweetAlert2 for alert popups -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
-  <form id="contactForm">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" placeholder="Your Message" required></textarea><br>
-    <button type="submit">Send</button>
-  </form>
+  <header>
+    <h1>Hello, I'm Anthony</h1>
+    <p>Frontend Developer in training 👨‍💻</p>
+    <button onclick="sayHello()">Click Me</button>
+    <button onclick="greetUser('Anthony')">Greet Me</button>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </header>
 
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required /><br />
+      <input type="email" name="email" placeholder="Your Email" required /><br />
+      <textarea name="message" placeholder="Your Message" required></textarea><br />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- JavaScript for form and interactivity -->
   <script>
     const form = document.getElementById('contactForm');
 
@@ -27,7 +45,7 @@
       }
 
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbx-od27r1JZNdr1RBf4U2m-T7SF_jlWOdKc7LrFWZ3a_I9d3jObvbXotxbedGpouZF-wA/exec", { // 🔁 Replace this
+        const response = await fetch("https://script.google.com/macros/s/AKfycbx-od27r1JZNdr1RBf4U2m-T7SF_jlWOdKc7LrFWZ3a_I9d3jObvbXotxbedGpouZF-wA/exec", {
           method: "POST",
           body: params
         });
@@ -40,11 +58,4 @@
           throw new Error(result.error);
         }
       } catch (err) {
-        console.error(err);
-        Swal.fire("Oops", "Something went wrong.", "error");
-      }
-    });
-  </script>
-
-</body>
-</html>
+        conso
