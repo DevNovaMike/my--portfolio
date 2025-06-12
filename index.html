@@ -53,30 +53,33 @@
   </section>
 
   <!-- Visitor Tracking Script -->
-  <script>
-    function sendVisitorData() {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyEoQQ4fwaZUSIYw5MjeeVoK8V0gFqFD-0dFyTi16uccKz0tf_srZM9NojfKulsAabm/exec';
-      const userAgent = navigator.userAgent;
-      const pageUrl = window.location.href;
-      const referrer = document.referrer;
+<script>
+  function sendVisitorData() {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyEoQQ4fwaZUSIYw5MjeeVoK8V0gFqFD-0dFyTi16uccKz0tf_srZM9NojfKulsAabm/exec';
 
-      const params = new URLSearchParams({
-        userAgent: userAgent,
-        pageUrl: pageUrl,
-        referrer: referrer
-      });
+    const userAgent = navigator.userAgent;
+    const pageUrl = window.location.href;
+    const referrer = document.referrer;
 
-      fetch(scriptURL + '?' + params.toString(), {
-        method: 'POST',
-      })
-      .then(response => response.text())
-      .then(data => console.log('Visitor tracked:', data))
-      .catch(error => console.error('Tracking error:', error));
-    }
+    // Send data in the POST body, NOT in the URL
+    const formData = new FormData();
+    formData.append('userAgent', userAgent);
+    formData.append('pageUrl', pageUrl);
+    formData.append('referrer', referrer);
 
-    // Run on page load
-    window.onload = sendVisitorData;
-  </script>
+    fetch(scriptURL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => console.log('Visitor tracked:', data))
+    .catch(error => console.error('Tracking error:', error));
+  }
+
+  // Run on page load
+  window.onload = sendVisitorData;
+</script>
+
 
   <!-- External JS -->
   <script src="script.js"></script>
