@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Contact</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
-  <header>
-    <h1>Hello, I'm Anthony</h1>
-    <p>Frontend Developer in training 👨‍💻</p>
-  </header>
-
-  <form id="contactForm" action="https://script.google.com/macros/s/AKfycbwCIX2H0gGoDoVJOl7EisSsWh-BkkRGjyixp2TePLELvKiUeJZc2CiN-UZqLYTtqpy_/exec" method="POST">
+  <form id="contactForm">
     <input type="text" name="name" placeholder="Your Name" required><br>
     <input type="email" name="email" placeholder="Your Email" required><br>
     <textarea name="message" placeholder="Your Message" required></textarea><br>
@@ -27,32 +21,27 @@
       e.preventDefault();
 
       const formData = new FormData(form);
+      const params = new URLSearchParams();
+      for (const [key, value] of formData.entries()) {
+        params.append(key, value);
+      }
 
       try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData
+        const response = await fetch("https://script.google.com/macros/s/AKfycbx-od27r1JZNdr1RBf4U2m-T7SF_jlWOdKc7LrFWZ3a_I9d3jObvbXotxbedGpouZF-wA/exec", { // 🔁 Replace this
+          method: "POST",
+          body: params
         });
 
         const result = await response.json();
-
         if (result.success) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Message Sent!',
-            text: 'Thank you for contacting me.',
-          });
+          Swal.fire("Success", "Message sent successfully!", "success");
           form.reset();
         } else {
-          throw new Error(result.error || 'Form failed to submit');
+          throw new Error(result.error);
         }
-      } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong. Try again later.',
-        });
-        console.error('Error caught:', error);
+      } catch (err) {
+        console.error(err);
+        Swal.fire("Oops", "Something went wrong.", "error");
       }
     });
   </script>
