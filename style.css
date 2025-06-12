@@ -119,4 +119,7 @@ body {
   font-family: 'Poppins', sans-serif;
 button {
   transition: background-color 0.3s ease;
+#contact {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
