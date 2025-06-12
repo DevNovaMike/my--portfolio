@@ -96,4 +96,24 @@ button:hover {
     width: 100%;
     font-size: 1rem;
   }
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #contact input,
+  #contact textarea {
+    width: 100%;
+  }
 }
+
