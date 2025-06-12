@@ -6,6 +6,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -24,6 +25,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   margin: 5px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -38,6 +40,13 @@ button:hover {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#contact h2 {
+  color: #333;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 #contact input,
@@ -48,6 +57,7 @@ button:hover {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #contact button {
@@ -57,11 +67,20 @@ button:hover {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 /* ---------- Dark Mode ---------- */
 .dark-mode {
   background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.dark-mode #contact {
+  background-color: #2a2a2a;
+}
+
+.dark-mode #contact h2 {
   color: #f0f0f0;
 }
 
@@ -93,18 +112,14 @@ button:hover {
     margin-bottom: 10px;
   }
 
-#contact input,
-#contact textarea {
-  width: 90%;
-  max-width: 400px;
-  padding: 10px;
-  margin: 10px auto;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  display: block;
-  box-sizing: border-box;
-}
+  #contact input,
+  #contact textarea {
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
+    display: block;
+    box-sizing: border-box;
+  }
 
   #contactForm {
     width: 100%;
