@@ -52,6 +52,32 @@
     </div>
   </section>
 
+  <!-- Visitor Tracking Script -->
+  <script>
+    function sendVisitorData() {
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyEoQQ4fwaZUSIYw5MjeeVoK8V0gFqFD-0dFyTi16uccKz0tf_srZM9NojfKulsAabm/exec';
+      const userAgent = navigator.userAgent;
+      const pageUrl = window.location.href;
+      const referrer = document.referrer;
+
+      const params = new URLSearchParams({
+        userAgent: userAgent,
+        pageUrl: pageUrl,
+        referrer: referrer
+      });
+
+      fetch(scriptURL + '?' + params.toString(), {
+        method: 'POST',
+      })
+      .then(response => response.text())
+      .then(data => console.log('Visitor tracked:', data))
+      .catch(error => console.error('Tracking error:', error));
+    }
+
+    // Run on page load
+    window.onload = sendVisitorData;
+  </script>
+
   <!-- External JS -->
   <script src="script.js"></script>
 </body>
