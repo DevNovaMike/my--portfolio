@@ -10,13 +10,20 @@ function greetUser(name) {
 function toggleDarkMode() {
   const isDark = document.body.classList.toggle("dark-mode");
   localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+
+  // Change button text accordingly
+  const btn = document.querySelector('button[onclick="toggleDarkMode()"]');
+  if (btn) btn.textContent = isDark ? "Light Mode ☀️" : "Dark Mode 🌙";
 }
 
 // Run this when the page loads
 window.addEventListener("DOMContentLoaded", () => {
   const darkModeSetting = localStorage.getItem("darkMode");
+  const btn = document.querySelector('button[onclick="toggleDarkMode()"]');
+
   if (darkModeSetting === "enabled") {
     document.body.classList.add("dark-mode");
+    if (btn) btn.textContent = "Light Mode ☀️";
   }
 
   // Animation scroll-in observer
@@ -38,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const submitButton = form.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
 
     const formData = new FormData(form);
     const params = new URLSearchParams();
@@ -65,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       console.error(err);
       Swal.fire("Oops", "Something went wrong.", "error");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send";
     }
   });
 });
