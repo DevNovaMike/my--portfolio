@@ -1,6 +1,6 @@
 /* ---------- Base Styles ---------- */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   background-color: #f0f0f0;
   color: #333;
@@ -46,6 +46,7 @@ button:hover {
 #contact h2 {
   color: #333;
   margin-bottom: 20px;
+  font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
