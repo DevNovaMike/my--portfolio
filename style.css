@@ -126,4 +126,44 @@ button:hover {
     width: 100%;
     padding: 0;
   }
+/* ---------- Portfolio Section ---------- */
+#portfolio {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+#portfolio h2 {
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Dark mode adjustments */
+.dark-mode .project-card {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border-color: #444;
+}
+
 }
