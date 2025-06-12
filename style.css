@@ -93,11 +93,18 @@ button:hover {
     margin-bottom: 10px;
   }
 
-  #contact input,
-  #contact textarea {
-    width: 100%;
-    box-sizing: border-box;
-  }
+#contact input,
+#contact textarea {
+  width: 90%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 10px auto;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  box-sizing: border-box;
+}
 
   #contactForm {
     width: 100%;
