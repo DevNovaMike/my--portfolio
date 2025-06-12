@@ -11,3 +11,4 @@ function greetUser(name) {
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
+
