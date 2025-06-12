@@ -1,4 +1,4 @@
-/* Base Styles (Desktop & Tablet Defaults) */
+/* ---------- Base Styles ---------- */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -8,45 +8,46 @@ body {
   padding: 0;
 }
 
-header {
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
 h1 {
   color: #007bff;
-  margin-bottom: 10px;
+}
+
+header {
+  padding: 20px;
 }
 
 button {
   padding: 10px 20px;
-  margin: 5px;
   background-color: #28a745;
   border: none;
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  margin: 5px;
 }
 
 button:hover {
   background-color: #218838;
 }
 
+/* ---------- Contact Section ---------- */
 #contact {
-  max-width: 600px;
+  max-width: 500px;
   margin: 30px auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 #contact input,
 #contact textarea {
-  width: 90%;
+  width: 80%;
   padding: 10px;
   margin: 10px 0;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 #contact button {
@@ -54,11 +55,11 @@ button:hover {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-/* Dark Mode Styles */
+/* ---------- Dark Mode ---------- */
 .dark-mode {
   background-color: #1e1e1e;
   color: #f0f0f0;
@@ -72,49 +73,7 @@ button:hover {
   border: 1px solid #444;
 }
 
-/* 🌐 Mobile-Responsive Adjustments */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  #contact {
-    width: 90%;
-    padding: 15px;
-  }
-
-  #contact input,
-  #contact textarea {
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-    font-size: 1rem;
-  }
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  header h1 {
-    font-size: 1.5em;
-  }
-
-  button {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  #contact input,
-  #contact textarea {
-    width: 100%;
-  }/* ----------- Mobile Friendly Layout ----------- */
+/* ---------- Mobile Responsive Layout ---------- */
 @media (max-width: 768px) {
   body {
     font-size: 16px;
