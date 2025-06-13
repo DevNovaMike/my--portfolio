@@ -44,7 +44,9 @@ button:hover:not(:disabled) {
   background-color: #218838;
 }
 
-#about, #portfolio, #contact {
+#about,
+#portfolio,
+#contact {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
@@ -64,18 +66,12 @@ button:hover:not(:disabled) {
   border-radius: 4px;
 }
 
+/* Projects layout */
 .projects {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
-
-@media (min-width: 768px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 
 .project-card {
   background-color: #ffffff;
@@ -129,7 +125,7 @@ button:hover:not(:disabled) {
 }
 
 /* Responsive layout for laptops */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .projects {
     flex-direction: row;
     flex-wrap: wrap;
@@ -141,10 +137,14 @@ button:hover:not(:disabled) {
     max-width: 300px;
   }
 
-  #about, #portfolio, #contact {
+  #about,
+  #portfolio,
+  #contact {
     max-width: 900px;
   }
+}
 
+/* ✅ Footer styles moved outside media query */
 footer {
   margin-top: 40px;
   padding: 20px;
@@ -158,4 +158,3 @@ footer {
   background-color: #1e1e1e;
   color: #ccc;
 }
-
