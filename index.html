@@ -17,49 +17,47 @@
 <body>
 
   <header>
+    <img src="profile.png" alt="Avatar" class="avatar" />
     <h1>Hello, I'm Anthony</h1>
     <p>Frontend Developer in training 👨‍💻</p>
     <button onclick="sayHello()">Click Me</button>
-    <button onclick="greetUser('Anthony')">Greet Me</button>
     <button onclick="toggleDarkMode()">Dark Mode 🌙</button>
   </header>
-
-  <section id="contact" class="hidden">
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <section id="portfolio" class="hidden">
-  <h2>My Projects</h2>
-  <div class="projects">
-    <div class="project-card">
-      <h3>Project One</h3>
-      <p>A simple HTML/CSS website showcasing responsive design.</p>
-      <!-- Live Demo button removed -->
-    </div>
-    <div class="project-card">
-      <h3>Project Two</h3>
-      <p>JavaScript form with email alerts and Google Sheets integration.</p>
-      <!-- Live Demo button removed -->
-    </div>
-    <div class="project-card">
-      <h3>Project Three</h3>
-      <p>Dark/light mode toggle with saved user preference using localStorage.</p>
-      <!-- Live Demo button removed -->
-    </div>
-  </div>
-</section>
 
   <section id="about" class="hidden">
     <h2>About Me</h2>
     <p>
       Hi, I'm Anthony — a passionate frontend developer in training. I enjoy creating clean, responsive websites and learning new web technologies every day. Thanks for stopping by!
     </p>
+  </section>
+
+  <section id="portfolio" class="hidden">
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>A simple HTML/CSS website showcasing responsive design.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>JavaScript form with email alerts and Google Sheets integration.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <p>Dark/light mode toggle with saved user preference using localStorage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section moved to bottom -->
+  <section id="contact" class="hidden">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" disabled>Send</button>
+    </form>
   </section>
 
   <!-- External JS -->
