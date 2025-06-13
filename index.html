@@ -17,8 +17,7 @@
 <body>
 
   <header>
-    <!-- Make sure this image is saved in the same folder and named exactly -->
-    <img src="profile.jpg" alt="Profile Photo" class="avatar" />
+    <img src="profile.jpg" onerror="this.src='https://via.placeholder.com/120'" alt="Profile Photo" class="avatar" />
     <h1>Hello, I'm Anthony</h1>
     <p>Frontend Developer in training 👨‍💻</p>
     <button onclick="toggleDarkMode()">Dark Mode 🌙</button>
@@ -58,7 +57,6 @@
       <button type="submit" disabled>Send</button>
     </form>
   </section>
-  <img src="https://via.placeholder.com/120" alt="Profile Photo" class="avatar" />
 
   <!-- External JavaScript -->
   <script src="script.js"></script>
