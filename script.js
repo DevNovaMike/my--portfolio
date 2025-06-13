@@ -25,7 +25,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
-  // Form validation and submission
   const form = document.getElementById('contactForm');
   const button = form.querySelector("button[type='submit']");
 
