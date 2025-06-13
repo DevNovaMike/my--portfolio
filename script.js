@@ -1,7 +1,3 @@
-function sayHello() {
-  alert("Hello! Thanks for visiting 😊");
-}
-
 function toggleDarkMode() {
   const isDark = document.body.classList.toggle("dark-mode");
   localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
@@ -28,9 +24,8 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+  // Form validation and submission
   const form = document.getElementById('contactForm');
   const button = form.querySelector("button[type='submit']");
 
