@@ -13,11 +13,10 @@ header {
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  filter: blur(2px);
   margin-bottom: 10px;
 }
 
@@ -46,7 +45,7 @@ button:hover:not(:disabled) {
 }
 
 #about, #portfolio, #contact {
-  max-width: 800px;
+  max-width: 600px;
   margin: 40px auto;
   padding: 20px;
   background-color: #fff;
@@ -57,24 +56,17 @@ button:hover:not(:disabled) {
 
 #contact input,
 #contact textarea {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin: 10px 0;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-input:autofill {
-  background-color: #e0ffe0 !important;
-  color: #000 !important;
 }
 
 .projects {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -83,7 +75,6 @@ input:autofill {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
-  width: 250px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
@@ -123,13 +114,9 @@ input:autofill {
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-  .project-card {
-    width: 90%;
-  }
-
-  #contact input,
-  #contact textarea {
-    width: 95%;
+@media (min-width: 769px) {
+  body {
+    max-width: 480px;
+    margin: 0 auto;
   }
 }
