@@ -83,12 +83,7 @@ button:hover:not(:disabled) {
   transform: translateY(-5px);
 }
 
-/* ✅ Dark Mode (Single Version) */
-.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-
+/* Dark Mode */
 .dark-mode {
   background-color: #121212;
   color: #f0f0f0;
@@ -100,7 +95,7 @@ button:hover:not(:disabled) {
 
 .dark-mode #about,
 .dark-mode #contact,
-.dark-mode #portfolio,   /* ✅ ADD THIS LINE */
+.dark-mode #portfolio,
 .dark-mode .project-card {
   background-color: #2a2a2a;
   color: #f0f0f0;
@@ -114,8 +109,7 @@ button:hover:not(:disabled) {
   border: 1px solid #444;
 }
 
-
-/* Animate on scroll */
+/* Scroll animations */
 .hidden {
   opacity: 0;
   transform: translateY(40px);
@@ -127,10 +121,20 @@ button:hover:not(:disabled) {
   transform: translateY(0);
 }
 
-/* ✅ Layout fix: consistent look across screens */
+/* Responsive layout for laptops */
 @media (min-width: 769px) {
-  body {
-    max-width: 480px;
-    margin: 0 auto;
+  .projects {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+  }
+
+  #about, #portfolio, #contact {
+    max-width: 900px;
   }
 }
