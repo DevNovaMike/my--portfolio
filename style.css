@@ -144,4 +144,18 @@ button:hover:not(:disabled) {
   #about, #portfolio, #contact {
     max-width: 900px;
   }
+
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #eee;
+  color: #333;
+  font-size: 0.9rem;
+  text-align: center;
 }
+
+.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #ccc;
+}
+
