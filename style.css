@@ -83,14 +83,30 @@ button:hover:not(:disabled) {
   transform: translateY(-5px);
 }
 
-..dark-mode #about,
-.dark-mode #contact,
-.dark-mode #portfolio,
-.dark-mode .project-card,
-.dark-mode .projects {
-  background-color: #2a2a2a;
+.dark-mode {
+  background-color: #121212;
   color: #f0f0f0;
 }
+
+.dark-mode header {
+  background-color: #1e1e1e;
+}
+
+.dark-mode #about,
+.dark-mode #contact,
+.dark-mode .project-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.dark-mode button,
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+
 
 
 .dark-mode #about,
