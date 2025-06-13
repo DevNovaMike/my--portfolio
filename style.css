@@ -89,12 +89,18 @@ button:hover:not(:disabled) {
   color: #f0f0f0;
 }
 
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
 .dark-mode header {
   background-color: #1e1e1e;
 }
 
 .dark-mode #about,
 .dark-mode #contact,
+.dark-mode #portfolio,   /* ✅ ADD THIS LINE */
 .dark-mode .project-card {
   background-color: #2a2a2a;
   color: #f0f0f0;
@@ -107,6 +113,7 @@ button:hover:not(:disabled) {
   color: #fff;
   border: 1px solid #444;
 }
+
 
 /* Animate on scroll */
 .hidden {
