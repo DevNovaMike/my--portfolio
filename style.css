@@ -83,6 +83,7 @@ button:hover:not(:disabled) {
   transform: translateY(-5px);
 }
 
+/* ✅ Dark Mode (Single Version) */
 .dark-mode {
   background-color: #121212;
   color: #f0f0f0;
@@ -91,23 +92,6 @@ button:hover:not(:disabled) {
 .dark-mode header {
   background-color: #1e1e1e;
 }
-
-.dark-mode #about,
-.dark-mode #contact,
-.dark-mode .project-card {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-}
-
-.dark-mode button,
-.dark-mode input,
-.dark-mode textarea {
-  background-color: #333;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-
 
 .dark-mode #about,
 .dark-mode #contact,
@@ -124,6 +108,7 @@ button:hover:not(:disabled) {
   border: 1px solid #444;
 }
 
+/* Animate on scroll */
 .hidden {
   opacity: 0;
   transform: translateY(40px);
@@ -135,15 +120,10 @@ button:hover:not(:disabled) {
   transform: translateY(0);
 }
 
-@media (min-width: 769px) {
-  body {
-    max-width: 480px;
-    margin: 0 auto;
-  }
+/* ✅ Layout fix: consistent look across screens */
 @media (min-width: 769px) {
   body {
     max-width: 480px;
     margin: 0 auto;
   }
 }
-
