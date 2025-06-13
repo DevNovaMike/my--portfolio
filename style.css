@@ -83,10 +83,15 @@ button:hover:not(:disabled) {
   transform: translateY(-5px);
 }
 
-.dark-mode {
-  background-color: #1e1e1e;
+..dark-mode #about,
+.dark-mode #contact,
+.dark-mode #portfolio,
+.dark-mode .project-card,
+.dark-mode .projects {
+  background-color: #2a2a2a;
   color: #f0f0f0;
 }
+
 
 .dark-mode #about,
 .dark-mode #contact,
