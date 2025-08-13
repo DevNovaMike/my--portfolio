@@ -50,7 +50,16 @@ window.addEventListener("DOMContentLoaded", () => {
         body: params.toString()
       });
 
-      const result = await response.json();
+      const rawText = await response.text();
+      console.log("Raw response from server:", rawText);
+
+      let result;
+      try {
+        result = JSON.parse(rawText);
+      } catch (jsonErr) {
+        throw new Error("Response was not valid JSON. Check console log for details.");
+      }
+
       if (result.success) {
         Swal.fire("Success", "Message sent successfully!", "success");
         form.reset();
