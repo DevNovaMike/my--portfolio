@@ -37,24 +37,25 @@ window.addEventListener("DOMContentLoaded", () => {
     button.disabled = true;
     button.textContent = "Sending...";
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+    const formData = new FormData(form);
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      params.append(key, value);
+    }
 
     try {
-      const response = await fetch("https://contact-api-qoe5.onrender.com/messages", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbx-od27r1JZNdr1RBf4U2m-T7SF_jlWOdKc7LrFWZ3a_I9d3jObvbXotxbedGpouZF-wA/exec", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         Swal.fire("Success", "Message sent successfully!", "success");
         form.reset();
       } else {
-        Swal.fire("Oops", "Failed to send message. Try again.", "error");
+        throw new Error(result.error);
       }
     } catch (err) {
       console.error(err);
