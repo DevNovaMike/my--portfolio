@@ -44,7 +44,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbwr30fugI402RpQu8jCzz9fTyM3iCE_v3XRfgvJtnWc83iRcaFMuCnByWvhnD6sgwXwAg/exec", {
+      // 🔹 Replace this URL with your Google Apps Script Web App URL
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwPa3qKWxkaQ9qZ9dHVsuRuYnm-FmJ8XtxO1Xu9IS5sMpTtUfV83whW6xRfIamqVvifaw/exec", {
         method: "POST",
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString()
