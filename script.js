@@ -45,14 +45,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     try {
       // ✅ Your Google Apps Script Web App URL
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwPa3qKWxkaQ9qZ9dHVsuRuYnm-FmJ8XtxO1Xu9IS5sMpTtUfV83whW6xRfIamqVvifaw/exec",
-        {
-          method: "POST",
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: params.toString()
-        }
-      );
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwPa3qKWxkaQ9qZ9dHVsuRuYnm-FmJ8XtxO1Xu9IS5sMpTtUfV83whW6xRfIamqVvifaw/exec", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
 
       const rawText = await response.text();
       console.log("Raw response from server:", rawText);
@@ -61,18 +58,18 @@ window.addEventListener("DOMContentLoaded", () => {
       try {
         result = JSON.parse(rawText);
       } catch (jsonErr) {
-        throw new Error("Response was not valid JSON. Check Google Apps Script output.");
+        throw new Error("Response was not valid JSON. Check console log for details.");
       }
 
       if (result.success) {
         Swal.fire("Success", "Message sent successfully!", "success");
         form.reset();
       } else {
-        throw new Error(result.error || "Unknown error from server");
+        throw new Error(result.error);
       }
     } catch (err) {
-      console.error("Error submitting form:", err);
-      Swal.fire("Oops", "Something went wrong. Please try again later.", "error");
+      console.error(err);
+      Swal.fire("Oops", "Something went wrong.", "error");
     } finally {
       button.disabled = false;
       button.textContent = "Send";
