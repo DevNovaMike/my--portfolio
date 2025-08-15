@@ -22,7 +22,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
   document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
   const form = document.getElementById('contactForm');
@@ -44,32 +43,34 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      // ✅ Your Google Apps Script Web App URL
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzKiGh_alDhgv-l3-1H_rWC-YlirFIKxtmIOKyuQh-SKD-HEt7S_88O38fCs6d2zBw/exec", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString()
-      });
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzKiGh_alDhgv-l3-1H_rWC-YlirFIKxtmIOKyuQh-SKD-HEt7S_88O38fCs6d2zBw/exec",
+        {
+          method: "POST",
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString()
+        }
+      );
 
       const rawText = await response.text();
-      console.log("Raw response from server:", rawText);
+      console.log("Server response:", rawText);
 
       let result;
       try {
         result = JSON.parse(rawText);
-      } catch (jsonErr) {
-        throw new Error("Response was not valid JSON. Check console log for details.");
+      } catch {
+        throw new Error("Unexpected response format—check console log.");
       }
 
-      if (result.success) {
+      if (result.result === "success") {
         Swal.fire("Success", "Message sent successfully!", "success");
         form.reset();
       } else {
-        throw new Error(result.error);
+        throw new Error(result.message || "Server rejected the submission");
       }
     } catch (err) {
-      console.error(err);
-      Swal.fire("Oops", "Something went wrong.", "error");
+      console.error("Form submission error:", err);
+      Swal.fire("Oops", "Something went wrong — please try again.", "error");
     } finally {
       button.disabled = false;
       button.textContent = "Send";
