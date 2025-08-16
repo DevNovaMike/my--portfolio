@@ -14,24 +14,28 @@ window.addEventListener("DOMContentLoaded", () => {
     if (btn) btn.textContent = "Light Mode ☀️";
   }
 
+  // Animation observer
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('show');
+        entry.target.classList.add("show");
         observer.unobserve(entry.target);
       }
     });
   });
-  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+  document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 
-  const form = document.getElementById('contactForm');
+  // Contact form
+  const form = document.getElementById("contactForm");
   const button = form.querySelector("button[type='submit']");
 
-  form.addEventListener('input', () => {
+  // Enable/disable send button
+  form.addEventListener("input", () => {
     button.disabled = !form.checkValidity();
   });
 
-  form.addEventListener('submit', async (e) => {
+  // Handle submit
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     button.disabled = true;
     button.textContent = "Sending...";
@@ -44,11 +48,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzKiGh_alDhgv-l3-1H_rWC-YlirFIKxtmIOKyuQh-SKD-HEt7S_88O38fCs6d2zBw/exec",
+        "https://script.google.com/macros/s/AKfycbzKiGh_alDhgv-l3-1H_rWC-YlirFIKxtmIOKyuQh-SKD-HEt7S_88O38fCs6d2zBw/exec", 
         {
           method: "POST",
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: params.toString()
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: params.toString(),
         }
       );
 
@@ -59,18 +63,18 @@ window.addEventListener("DOMContentLoaded", () => {
       try {
         result = JSON.parse(rawText);
       } catch {
-        throw new Error("Unexpected response format—check console log.");
+        throw new Error("Unexpected response format — check console log.");
       }
 
       if (result.result === "success") {
-        Swal.fire("Success", "Message sent successfully!", "success");
+        Swal.fire("✅ Success", "Message sent successfully!", "success");
         form.reset();
       } else {
-        throw new Error(result.message || "Server rejected the submission");
+        throw new Error(result.message || "Server rejected the submission.");
       }
     } catch (err) {
       console.error("Form submission error:", err);
-      Swal.fire("Oops", "Something went wrong — please try again.", "error");
+      Swal.fire("❌ Oops", "Something went wrong — please try again.", "error");
     } finally {
       button.disabled = false;
       button.textContent = "Send";
